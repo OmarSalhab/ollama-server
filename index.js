@@ -10,7 +10,7 @@ const app = express();
 const PORT = 3001;
 
 app.use(express.json());
-app.use(cors({ origin: "https://fabulous-gumption-b3b7b7.netlify.app/" }));
+app.use(cors({ origin: "https://fabulous-gumption-b3b7b7.netlify.app" }));
 
 // let conversationHistory = [];
 // console.log(process.env.OLLAMA_KEY);
