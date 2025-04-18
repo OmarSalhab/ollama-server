@@ -1,6 +1,8 @@
 import express from "express";
 import axios from "axios";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const PORT = 3001;
@@ -9,7 +11,7 @@ app.use(express.json());
 app.use(cors({origin:"https://fabulous-gumption-b3b7b7.netlify.app"}));
 
 // let conversationHistory = [];
-
+console.log(process.env.OLLAMA_KEY);
 // Mimic OpenAI's API format for easy integration
 app.post("/v1/chat/completions", async (req, res) => {
 // 	try {
@@ -85,7 +87,7 @@ Remember to:
 	5. correctAnswer: should be between 0-3`
     
 
-    const response = await axios.post(import.meta.env.OLLAMA_KEY, {
+    const response = await axios.post(process.env.OLLAMA_KEY, {
         model: "gemma3:4b",
         prompt: content,
         system: system,
